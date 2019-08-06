@@ -11,7 +11,8 @@
     "build": "webpack --config webpack.dev.config.js && npm run copy:dist",
     "build:prod": "webpack --config webpack.prod.config.js && npm run copy:dist",
     "start": "node test/server.js",
-    "copy:dist": "node script/copy-build.js"
+    "copy:dist": "node script/copy-build.js",
+    "commit": "npm publish --access public"
   },
   "keywords": [
     "boostrap",
