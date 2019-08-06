@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+        <link rel="stylesheet" href="bts.css">
+        <script src="bts.js"></script>
+    </head>
+    <body>
+        <h1>BTS LIB Testing Page</h1>
+        <script type="text/javascript" src="lib/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="lib/popper.min.js"></script>
+        <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+            function logFN(msg){
+                return function() { 
+                    if (arguments[0] && typeof arguments[0] === 'object' 
+                        && arguments[0].message && arguments[0].stack) {
+                        console.error(msg)
+                        console.error(arguments[0].message)
+                        console.error(arguments[0].stack)
+                    } else {
+                        console.log(msg) 
+                    }
+                }
+            }
+        </script>
+        <script>
+            var k = bts.makeButton({text: "sample"})
+            document.body.appendChild(k)
+
+            var p = bts.makePagination(5, 40, index => console.log(index))
+            document.body.appendChild(p)
+
+            var c = bts.makeComboBox({
+                items: [
+                    {name: "a", value:"1"},
+                    {name: "b", value:"2"},
+                    {name: "c", value:"3"},],
+                placeholder: 'sample cmb',
+                onChange: (e) => console.log('combobox selected')
+            })
+            document.body.appendChild(c)
+
+            var t = bts.makeToggleCheckbox({
+                id: 'weerydg',
+                value: true,
+                onChange: () => { console.log('toggle checkbox value changed')}
+            })
+            document.body.appendChild(t)
+
+            var a = new bts.AutoCompleteInput({
+                id: "qqwe",
+                placeholder: "auto complete me",
+                getListFN: (keyword, success) => { 
+                    let arr =["aa","bb","cc","dd","ee"]
+
+                    let result = []
+                    arr.forEach(x => {
+                        if (x.toUpperCase().startsWith(keyword.toUpperCase())) {
+                            result.push(x)
+                        }
+                    })
+
+                    success(result)
+                },
+                selectedFN: (value) => { console.log("Selected autocomplete value: " + value)}
+            })
+            document.body.appendChild(a.getControl())
+        </script>
+    </body>
+</html>
