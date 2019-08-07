@@ -1,13 +1,26 @@
 /**
- * 
- * @param {Number} selectedIndex mark current active page item
- * @param {Number} pageSize number of items contains in one page
- * @param {Number} totalCount total page number
- * @param {Function(Number):void} onIndexSelectFn handler when pagination item is clicked
+ * @typedef {Object} PaginationConfig
+ * @property {Number} selectedIndex mark current active page item
+ * @property {Number} pageSize number of items contains in one page
+ * @property {Number} totalCount total page number
+ * @property {Function(Number):void} onIndexSelectFn handler when pagination item is clicked
  */
-export function makePagination(pageSize, totalCount, onIndexSelectFn) {
+
+/**
+ * Create bootstrap pagination
+ * @param {PaginationConfig} config pagination builder configuration
+ */
+export function makePagination(config) {
+    let _config = {}
+    if (config) {
+        _config = config
+    }
+
+    let pageSize = _config.pageSize? _config.pageSize : 0
+    let totalCount = _config.totalCount? _config.totalCount : 0
+
     var pageCount = (totalCount / pageSize) + (totalCount % pageSize > 0 ? 1 : 0);
-    var currentIndex = 0
+    var currentIndex = _config.selectedIndex? _config.selectedIndex : 0;
     let displaySize = 5 <= pageCount? 5 : pageCount
 
     var element = document.createElement("ul");
@@ -59,7 +72,9 @@ export function makePagination(pageSize, totalCount, onIndexSelectFn) {
         }
 
         if (tmpIndex !== currentIndex) {
-            onIndexSelectFn(tmpIndex)
+            if (_config.onIndexSelectFn) {
+                _config.onIndexSelectFn(tmpIndex)
+            }
 
             currentIndex = tmpIndex
         }

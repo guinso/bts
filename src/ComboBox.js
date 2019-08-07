@@ -4,15 +4,15 @@
 
  /**
   * @typedef {Object} SelectOptionItem
-  * @param {String} name display text
-  * @param {String} value selected value
+  * @property {String} name display text
+  * @property {String} value selected value
   */
 
  /**
   * @typedef {Object} ComboBoxConfig
-  * @param {Array<SelectOptionItem>} items combobox's display items
-  * @param {String} placeholder combobox placeholder; leave blank will not display
-  * @param {Function(Event):void} onChange event handler on selected item changed
+  * @property {Array<SelectOptionItem>} items combobox's display items
+  * @property {String} placeholder combobox placeholder; leave blank will not display
+  * @property {Function():void} onChange event handler on selected item changed
   */
 
 /**

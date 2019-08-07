@@ -4,10 +4,15 @@
 
 /**
  * @typedef {Object} ButtonConfig
- * @param {String} text button display text
- * @param {String} style Boostrap button style; default is primary
+ * @property {String} text button display text
+ * @property {String} style Boostrap button style; default is primary
  */
 
+ /**
+  * Create bootstrap dialog modal
+  * @param {ButtonConfig} config make button configuration
+  * @returns {HTMMLDivElement}
+  */
 export function makeButton(config) {
     let button = document.createElement('button')
 

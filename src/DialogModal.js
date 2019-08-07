@@ -4,9 +4,9 @@
 
 /**
  * @typedef {Object} DialogModalConfig
- * @param {String} title diaglog modal display title
- * @param {HTMLElement} body dialog body content
- * @param {HTMLElement} footer dialog footer content
+ * @property {String} title diaglog modal display title
+ * @property {HTMLElement} body dialog body content
+ * @property {HTMLElement} footer dialog footer content
  */
 
 

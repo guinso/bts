@@ -1,12 +1,15 @@
+import './bts.css'
+
+/**
+ * @typedef {Object} ToggleCheckboxConfig
+ * @property {Boolean} value checkbox value
+ * @property {String} id checkbox ID
+ * @property {Function():void} onChange handler when checkbox value changed
+ */
+
 /**
  * Create Toggle button style checkbox
- * 
- * @param {Element} element 
- * @param {JSON} option 
- * options:
- * {Boolean}     option.value       checkbox default value
- * {String}      option.id          checkbox id, if not specify, at random guid will be generated
- * {Function}    option.onChange    function to fire when value change
+ * @param {ToggleCheckboxConfig} config 
  */
 export function makeToggleCheckbox(config) {
     let element = document.createElement('div')

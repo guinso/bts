@@ -1,3 +1,5 @@
+import './bts.css'
+
 /**
  * @typedef {Object} AutoCompleteInputConfig
  * @property {String} id input text ID
