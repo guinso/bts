@@ -1,9 +1,9 @@
 {
   "name": "@guinso/bts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Boostrap toolkit builder",
   "repository": {
-    "url": "https://github.com/guinso/bts",
+    "url": "git://github.com/guinso/bts",
     "type": "git"
   },
   "main": "src/index.js",

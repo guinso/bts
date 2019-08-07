@@ -35,13 +35,13 @@ export function makeDialogModal(config) {
     
     let _header = _makeHeader(_config.title? _config.title : '')
 
-    let _body = ndocument.createElement('div')
+    let _body = document.createElement('div')
     _body.classList.add('modal-body')
     if(_config.body) {
         _body.appendChild(_config.body)
     }
 
-    let _footer = ndocument.createElement('div')
+    let _footer = document.createElement('div')
     _footer.classList.add('modal-footer')
     if(_config.footer) {
         _footer.appendChild(_config.footer)
